@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Base_URL } from "../../helper"
 import axios from "axios"
 import "./register.css"
 import {useNavigate} from "react-router-dom"
@@ -24,7 +25,7 @@ const Register = () => {
     const register=()=>{
         const {name,email,password,reEnterPassword,mobile,address}=user
         if(name && email && password && mobile && address &&(password===reEnterPassword)){
-            axios.post("http://localhost:9002/register",user)
+            axios.post(`${Base_URL}/register`,user)
             .then(response=>{
                 alert(response.data.message)
                 navigate("/login")

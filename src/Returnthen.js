@@ -3,12 +3,13 @@ import "./components/login/login.css"
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { Base_URL } from './helper';
 import { useNavigate,useParams } from 'react-router-dom';
 function Issue() {
     const params=useParams()
     const[data,setData]=useState([]);
     useEffect(()=>()=>{
-        axios.get(`http://localhost:9002/return/${params.data}`)
+        axios.get(`${Base_URL}/return/${params.data}`)
         .then(response=>{
             setData(response.data.message)
         })

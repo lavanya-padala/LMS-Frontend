@@ -2,12 +2,13 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { Base_URL } from './helper';
 import { useNavigate } from 'react-router-dom';
 function AllBookings() {
     const navigate=useNavigate();
     const[data,setData]=useState([]);
     useEffect(()=>()=>{
-        axios.get("http://localhost:9002/issue")
+        axios.get(`${Base_URL}/issue`)
         .then(response=>{
             setData(response.data.message)
         })

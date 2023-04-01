@@ -1,4 +1,5 @@
 import React from 'react'
+import { Base_URL } from './helper';
 import "./components/login/login.css"
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -8,7 +9,7 @@ function Issue() {
     const params=useParams()
     const[data,setData]=useState([]);
     useEffect(()=>()=>{
-        axios.get(`http://localhost:9002/issue/${params.data}`)
+        axios.get(`${Base_URL}/issue/${params.data}`)
         .then(response=>{
             setData(response.data.message)
         })

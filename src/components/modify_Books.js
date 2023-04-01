@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import axios from "axios"
 import {useNavigate} from "react-router-dom"
 import "./login/login.css"
+import { Base_URL } from '../helper'
 function Modify_Book() {
     const navigate=useNavigate()
     const [ user, setUser] = useState({
@@ -17,7 +18,7 @@ function Modify_Book() {
         })
     }
     const modify_book=()=>{
-      axios.post("http://localhost:9002/update-data",user)
+      axios.post(`${Base_URL}/update-data`,user)
        .then(response=>{
         alert(response.data.message)
       })

@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from "axios"
+import { Base_URL } from '../helper'
 import {useNavigate} from "react-router-dom"
 import "./login/login.css"
 function Add_Book() {
@@ -21,7 +22,7 @@ function Add_Book() {
         })
     }
     const add_book=()=>{
-      axios.post("http://localhost:9002/add-book",user)
+      axios.post(`${Base_URL}/add-book`,user)
        .then(response=>{
         alert(response.data.message)
       })

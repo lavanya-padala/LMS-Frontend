@@ -1,4 +1,5 @@
 import React from 'react'
+import { Base_URL } from './helper';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -7,7 +8,7 @@ function AllBookings() {
     const navigate=useNavigate();
     const[data,setData]=useState([]);
     useEffect(()=>()=>{
-        axios.get("http://localhost:9002/return")
+        axios.get(`${Base_URL}/return`)
         .then(response=>{
             setData(response.data.message)
         })

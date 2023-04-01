@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from "axios"
+import { Base_URL } from '../helper'
 import {useNavigate,useParams} from "react-router-dom"
 import "./login/login.css"
 function Booking() {
@@ -18,9 +19,10 @@ function Booking() {
         })
     }
     const login=()=>{
-      axios.post(`http://localhost:9002/booking/${params.id}`,user)
+      axios.post(`${Base_URL}/booking/${params.id}`,user)
        .then(response=>{
         alert(response.data.message)
+        console.log(response.data)
       })
     }
   return (

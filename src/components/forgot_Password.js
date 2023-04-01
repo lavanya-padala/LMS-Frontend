@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from "axios"
+import { Base_URL } from '../helper'
 import {useNavigate} from "react-router-dom"
 import "./login/login.css"
 function Forgot_Password() {
@@ -17,7 +18,7 @@ function Forgot_Password() {
         })
     }
     const forgot_password=()=>{
-        axios.post("http://localhost:9002/forgotpassword",user)
+        axios.post(`${Base_URL}/forgotpassword`,user)
         .then(response=>{
         alert(response.data.message)
         })
